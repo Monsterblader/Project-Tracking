@@ -100,32 +100,25 @@ class App extends Component {
         <div className="todo-list">
           {data.length <= 0
             ? <div className="text-box">Congratulations!&nbsp; You've been so productive that you have no more tasks.&nbsp; Now get off of your lazy ass and add something.</div>
-            : data.map( dat => {
-                if (!dat.completed) {
-                  return (
-                    <Listitem
-                        data={ dat }
-                        delete={ this.deleteFromDb }
-                        updateItem={ item => this.updateDb(dat.id, item) }
-                        key={ dat.id } />
-                    )}
-                return "";
-              }
+            : data
+                .filter( dat => !dat.completed )
+                .map( dat =>
+                  <Listitem
+                      data={ dat }
+                      delete={ this.deleteFromDb }
+                      updateItem={ item => this.updateDb(dat.id, item) }
+                      key={ dat.id } />
             )}
         </div>
         <hr />
         <div className="done-list">
-          {data.map( dat => {
-            if (dat.completed) {
-              return (
+          {data
+            .filter( dat => dat.completed )
+            .map( dat =>
                 <Listitem
                   data={ dat }
                   delete={ this.deleteFromDb }
                   key={ dat.id } />
-              )
-            }
-            return "";
-            }
           )}
         </div>
       </div>
