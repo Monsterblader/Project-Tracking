@@ -51,6 +51,7 @@ class App extends Component {
     axios.post('http://localhost:3001/api/putData', {
       id: idToBeAdded,
       item: item,
+      completed: false,
     });
   };
 
@@ -85,7 +86,7 @@ class App extends Component {
 
     axios.post('http://localhost:3001/api/updateData', {
       id: objIdToUpdate,
-      update: { item: updateToApply },
+      update: updateToApply,
     });
   };
 
@@ -96,15 +97,36 @@ class App extends Component {
     return (
       <div className="page-container">
         <Additem activateAdditem={ item => this.putDataToDb(item) } updateItem={ this.updateDb } />
-        {data.length <= 0
-          ? <div className="text-box">Congratulations!&nbsp; You've been so productive that you have no more tasks.&nbsp; Now get off of your lazy ass and add something.</div>
-          : data.map((dat) => (
-            <Listitem
-                data={ dat }
-                delete={ this.deleteFromDb }
-                updateItem={ item => this.updateDb(dat.id, item) }
-                key={ dat.id } />
-          ))}
+        <div className="todo-list">
+          {data.length <= 0
+            ? <div className="text-box">Congratulations!&nbsp; You've been so productive that you have no more tasks.&nbsp; Now get off of your lazy ass and add something.</div>
+            : data.map( dat => {
+                if (!dat.completed) {
+                  return (
+                    <Listitem
+                        data={ dat }
+                        delete={ this.deleteFromDb }
+                        updateItem={ item => this.updateDb(dat.id, item) }
+                        key={ dat.id } />
+                    )}
+                return "";
+              }
+            )}
+        </div>
+        <hr />
+        <div className="done-list">
+          {data.map( dat => {
+            if (dat.completed) {
+              return (
+                <Listitem
+                  data={ dat }
+                  key={ dat.id } />
+              )
+            }
+            return "";
+            }
+          )}
+        </div>
       </div>
     );
   }

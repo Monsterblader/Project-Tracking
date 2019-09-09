@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const DataSchema = new Schema(
   {
     id: Number,
-    item: String
+    item: String,
+    completed: Boolean
   },
   { timestamps: true }
 );
