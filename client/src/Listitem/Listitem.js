@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Checkmark from './Checkmark.js';
-import Xmark from './Xmark.js';
+import Checkmark from '../assets/Checkmark.js';
+import Xmark from '../assets/Xmark.js';
 import Edititem from './Edititem/Edititem.js';
 import './Listitem.css';
 

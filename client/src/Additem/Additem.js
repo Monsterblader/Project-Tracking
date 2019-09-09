@@ -1,5 +1,5 @@
 import React from 'react';
-import Plus from '../Plus.js';
+import Plus from '../assets/Plus.js';
 import './Additem.css';
 
 function Additem(props) {
