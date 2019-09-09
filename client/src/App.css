@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Livvic|Montserrat|Raleway|Titillium+Web&display=swap');
+
+body {
+  background-color: lightgray;
+}
+
+button {
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+}
+
+.empty-todo {
+  background-color: #eeeeee;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  height: 20px;
+  margin: 10px;
+  padding: 5px 10px;
+  width: 200px;
+}
+
+.page-container {
+  font-family: 'Titillium Web', cursive;
+}
+
+.text-box {
+  background-color: white;
+  border: 2px darkgray solid;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  height: 26px;
+}
