@@ -2,7 +2,7 @@ import React from 'react'
 
 function Xmark(props) {
   return (
-    <svg onClick={ props.activateXmark }
+    <svg 
         height="30.0000000"
         width="30.0000000"
         transform="scale(0.75) translate(0,12.5)"

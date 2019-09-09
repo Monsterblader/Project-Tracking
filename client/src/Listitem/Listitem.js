@@ -21,11 +21,19 @@ class Listitem extends Component {
                 changeItem={ newItem => this.setState({ editedItem: newItem }) }
                 updateItem={ newItem => {
                   this.setState({ edit: false });
-                  this.props.updateItem(newItem);
+                  this.props.updateItem({ item: newItem });
                 }}/>
           : <div>
-              <Checkmark activateCheckmark={ () => console.log("hello") }/>
-              <Xmark activateXmark={ () => this.props.delete(this.props.data.id) }/>
+              <div
+                  style={{display: "inline-block"}}
+                  onClick={ () => this.props.updateItem({ completed: true }) }>
+                <Checkmark />
+              </div>
+              <div
+                  style={{display: "inline-block"}}
+                  onClick={ () => this.props.delete(this.props.data.id) }>
+                <Xmark />
+              </div>
               <div
                   className="message text-box"
                   onClick={ () => this.setState({ edit: true })}>

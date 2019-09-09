@@ -2,7 +2,7 @@ import React from 'react';
 
 function Checkmark(props) {
   return (
-    <svg onClick={ props.activateCheckmark }
+    <svg 
         height="30.0000000"
         width="30.0000000"
         transform="scale(0.75) translate(0,12.5)"
