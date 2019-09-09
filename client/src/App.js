@@ -120,6 +120,7 @@ class App extends Component {
               return (
                 <Listitem
                   data={ dat }
+                  delete={ this.deleteFromDb }
                   key={ dat.id } />
               )
             }
