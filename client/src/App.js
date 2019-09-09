@@ -97,7 +97,7 @@ class App extends Component {
       <div className="page-container">
         <Additem activateAdditem={ item => this.putDataToDb(item) } updateItem={ this.updateDb } />
         {data.length <= 0
-          ? <div className="empty-todo"></div>
+          ? <div className="text-box">Congratulations!&nbsp; You've been so productive that you have no more tasks.&nbsp; Now get off of your lazy ass and add something.</div>
           : data.map((dat) => (
             <Listitem
                 data={ dat }
