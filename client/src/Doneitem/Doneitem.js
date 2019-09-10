@@ -14,7 +14,7 @@ function Doneitem(props) {
           } }>
         <svg
             height="30.0"
-            transform="scale(-1,1) translate(0,5)"
+            transform="scale(-1,1) translate(5,5)"
             width="30.0">
           <Checkmark />
         </svg>
