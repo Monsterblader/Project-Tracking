@@ -16,6 +16,10 @@ input {
   font-family: 'Titillium Web', cursive;
 }
 
+.svg-container {
+  display: inline-block;
+}
+
 .text-box {
   background-color: white;
   border: 2px darkgray solid;

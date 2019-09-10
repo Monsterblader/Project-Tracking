@@ -6,7 +6,7 @@ function Additem(props) {
   return (
     <div className="add-item">
       <div
-          style={{ display: "inline-block" }}
+          className="svg-container"
           onClick={ e => {
             props.activateAdditem(e.currentTarget.nextSibling.value);
             e.currentTarget.nextSibling.value = '';

@@ -6,7 +6,7 @@ function Edititem(props) {
   return (
     <div className="edit-item">
       <div
-          style={{ display: "inline-block" }}
+          className="svg-container"
           onClick={ e => props.updateItem(e.currentTarget.nextSibling.value) }>
         <Plus />
       </div>

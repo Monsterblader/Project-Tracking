@@ -25,12 +25,12 @@ class Listitem extends Component {
                 }}/>
           : <div>
               <div
-                  style={{display: "inline-block"}}
+                  className="svg-container"
                   onClick={ () => this.props.updateItem({ completed: true }) }>
                 <Checkmark />
               </div>
               <div
-                  style={{display: "inline-block"}}
+                  className="svg-container"
                   onClick={ () => this.props.delete(this.props.data.id) }>
                 <Xmark />
               </div>
