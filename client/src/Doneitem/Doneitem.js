@@ -12,13 +12,16 @@ function Doneitem(props) {
             console.log('clicked');
             props.uncompleteItem();
           } }>
-        <svg transform="scale(-1,1)">
+        <svg
+            height="30.0"
+            transform="scale(-1,1) translate(0,5)"
+            width="30.0">
           <Checkmark />
         </svg>
       </div>
       <div
           className="svg-container"
-          onClick={ () => props.delete(this.props.data.id) }>
+          onClick={ props.delete }>
         <Xmark />
       </div>
       <div className="message text-box">

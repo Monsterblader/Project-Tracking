@@ -118,7 +118,7 @@ class App extends Component {
             .map( dat =>
               <Doneitem
                   data={ dat }
-                  delete={ this.deleteFromDb }
+                  delete={ () => this.deleteFromDb(dat.id) }
                   uncompleteItem={ () => this.updateDb(dat.id, { completed: false }) }
                   key={ dat.id } />
           )}
