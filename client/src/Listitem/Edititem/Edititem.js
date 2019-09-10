@@ -18,7 +18,6 @@ function Edititem(props) {
             ? props.updateItem(e.target.value)
             : props.changeItem(e.target.value) } }
         onBlur={ e => {
-          console.log('onBlur', e.target.value)
           e.target.value = props.itemState.editedItem;
           props.cancel(); } }
         autoFocus
