@@ -119,6 +119,7 @@ class App extends Component {
               <Doneitem
                   data={ dat }
                   delete={ this.deleteFromDb }
+                  uncompleteItem={ () => this.updateDb(dat.id, { completed: false }) }
                   key={ dat.id } />
           )}
         </div>

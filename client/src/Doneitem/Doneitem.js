@@ -8,7 +8,10 @@ function Doneitem(props) {
     <div className="done-item">
       <div
           className="svg-container"
-          onClick={ () => props.updateItem({ completed: true }) }>
+          onClick={ () => {
+            console.log('clicked');
+            props.uncompleteItem();
+          } }>
         <svg transform="scale(-1,1)">
           <Checkmark />
         </svg>
