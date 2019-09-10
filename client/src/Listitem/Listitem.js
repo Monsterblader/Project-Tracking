@@ -18,6 +18,7 @@ class Listitem extends Component {
         { this.state.edit
           ? <Edititem
                 itemState={ this.state }
+                cancel={ () => this.setState({ edit: false }) }
                 changeItem={ newItem => this.setState({ editedItem: newItem }) }
                 updateItem={ newItem => {
                   this.setState({ edit: false });

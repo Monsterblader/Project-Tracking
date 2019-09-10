@@ -13,7 +13,13 @@ function Edititem(props) {
       <input
         className="text-box"
         value={ props.itemState.editedItem }
-        onChange={ e => props.changeItem(e.currentTarget.value) }
+        onChange={ e => {
+          e.keyCode === 13
+            ? props.updateItem(e.currentTarget.value)
+            : props.changeItem(e.currentTarget.value) }}
+        onBlur={
+          props.cancel
+         }
       />
     </div>
   );
