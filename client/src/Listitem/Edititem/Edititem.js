@@ -15,11 +15,13 @@ function Edititem(props) {
         value={ props.itemState.editedItem }
         onChange={ e => {
           e.keyCode === 13
-            ? props.updateItem(e.currentTarget.value)
-            : props.changeItem(e.currentTarget.value) }}
-        onBlur={
-          props.cancel
-         }
+            ? props.updateItem(e.target.value)
+            : props.changeItem(e.target.value) } }
+        onBlur={ e => {
+          console.log('onBlur', e.target.value)
+          e.target.value = props.itemState.editedItem;
+          props.cancel(); } }
+        autoFocus
       />
     </div>
   );

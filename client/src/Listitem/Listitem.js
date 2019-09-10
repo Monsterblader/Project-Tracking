@@ -5,10 +5,14 @@ import Edititem from './Edititem/Edititem.js';
 import './Listitem.css';
 
 class Listitem extends Component {
-  state = {
-    edit: false,
-    editedItem: this.props.data.item,
-  };
+  constructor(props) {
+    super();
+
+    this.state = {
+      edit: false,
+      editedItem: props.data.item,
+    };
+  }
 
   render() {
     return (
@@ -37,7 +41,7 @@ class Listitem extends Component {
               </div>
               <div
                   className="message text-box"
-                  onClick={ () => this.setState({ edit: true })}>
+                  onMouseOver={ () => this.setState({ edit: true })}>
                 { this.state.editedItem }
               </div>
             </div>
