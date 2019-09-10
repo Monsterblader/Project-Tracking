@@ -20,7 +20,7 @@ function Additem(props) {
         style={{ width: '200px' }}
       />
     </div>
-  )
+  );
 }
 
 export default Additem;

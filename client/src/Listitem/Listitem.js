@@ -37,7 +37,7 @@ class Listitem extends Component {
               <div
                   className="message text-box"
                   onClick={ () => this.setState({ edit: true })}>
-                { this.props.data.item }
+                { this.state.editedItem }
               </div>
             </div>
         }

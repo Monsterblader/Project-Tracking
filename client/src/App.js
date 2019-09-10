@@ -1,8 +1,9 @@
 // https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274
 import React, { Component } from 'react';
 import axios from 'axios';
-import Listitem from './Listitem/Listitem.js';
 import Additem from './Additem/Additem.js';
+import Doneitem from './Doneitem/Doneitem.js';
+import Listitem from './Listitem/Listitem.js';
 import './App.css';
 
 class App extends Component {
@@ -115,7 +116,7 @@ class App extends Component {
           {data
             .filter( dat => dat.completed )
             .map( dat =>
-                <Listitem
+              <Doneitem
                   data={ dat }
                   delete={ this.deleteFromDb }
                   key={ dat.id } />
