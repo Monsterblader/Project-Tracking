@@ -1,12 +1,12 @@
 import React from 'react';
-import Plus from '../Plus.js';
+import Plus from '../assets/Plus.js';
 import './Additem.css';
 
 function Additem(props) {
   return (
     <div className="add-item">
       <div
-          style={{ display: "inline-block" }}
+          className="svg-container"
           onClick={ e => {
             props.activateAdditem(e.currentTarget.nextSibling.value);
             e.currentTarget.nextSibling.value = '';
@@ -20,7 +20,7 @@ function Additem(props) {
         style={{ width: '200px' }}
       />
     </div>
-  )
+  );
 }
 
 export default Additem;

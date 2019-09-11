@@ -1,20 +1,25 @@
 // https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274
 import React, { Component } from 'react';
 import axios from 'axios';
-import Listitem from './Listitem/Listitem.js';
 import Additem from './Additem/Additem.js';
+import Doneitem from './Doneitem/Doneitem.js';
+import Listitem from './Listitem/Listitem.js';
 import './App.css';
 
 class App extends Component {
   // Initialize our state;
-  state = {
-    data: [],
-    id: 0,
-    intervalIsSet: false,
-    idToDelete: null,
-    idToUpdate: null,
-    objectToUpdate: null,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      id: 0,
+      intervalIsSet: false,
+      idToDelete: null,
+      idToUpdate: null,
+      objectToUpdate: null,
+    };
+  }
 
   // When component mounts, the first thing that it does is fetch all existing
   // data in our db.  Then we incorporate a polling logic so that we can easily
@@ -96,35 +101,32 @@ class App extends Component {
     const { data } = this.state;
     return (
       <div className="page-container">
-        <Additem activateAdditem={ item => this.putDataToDb(item) } updateItem={ this.updateDb } />
+        <Additem
+            activateAdditem={ item => this.putDataToDb(item) } 
+            updateItem={ this.updateDb } />
         <div className="todo-list">
           {data.length <= 0
             ? <div className="text-box">Congratulations!&nbsp; You've been so productive that you have no more tasks.&nbsp; Now get off of your lazy ass and add something.</div>
-            : data.map( dat => {
-                if (!dat.completed) {
-                  return (
-                    <Listitem
-                        data={ dat }
-                        delete={ this.deleteFromDb }
-                        updateItem={ item => this.updateDb(dat.id, item) }
-                        key={ dat.id } />
-                    )}
-                return "";
-              }
+            : data
+                .filter( dat => !dat.completed )
+                .map( dat =>
+                  <Listitem
+                      data={ dat }
+                      delete={ this.deleteFromDb }
+                      updateItem={ item => this.updateDb(dat.id, item) }
+                      key={ dat.id } />
             )}
         </div>
         <hr />
         <div className="done-list">
-          {data.map( dat => {
-            if (dat.completed) {
-              return (
-                <Listitem
+          {data
+            .filter( dat => dat.completed )
+            .map( dat =>
+              <Doneitem
                   data={ dat }
+                  delete={ () => this.deleteFromDb(dat.id) }
+                  uncompleteItem={ () => this.updateDb(dat.id, { completed: false }) }
                   key={ dat.id } />
-              )
-            }
-            return "";
-            }
           )}
         </div>
       </div>

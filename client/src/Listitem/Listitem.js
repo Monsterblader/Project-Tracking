@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import Checkmark from './Checkmark.js';
-import Xmark from './Xmark.js';
+import Checkmark from '../assets/Checkmark.js';
+import Xmark from '../assets/Xmark.js';
 import Edititem from './Edititem/Edititem.js';
 import './Listitem.css';
 
 class Listitem extends Component {
-  state = {
-    edit: false,
-    editedItem: this.props.data.item,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      edit: false,
+      editedItem: this.props.data.item,
+    };
+  }
 
   render() {
     return (
@@ -18,6 +22,7 @@ class Listitem extends Component {
         { this.state.edit
           ? <Edititem
                 itemState={ this.state }
+                cancel={ () => this.setState({ edit: false }) }
                 changeItem={ newItem => this.setState({ editedItem: newItem }) }
                 updateItem={ newItem => {
                   this.setState({ edit: false });
@@ -25,19 +30,19 @@ class Listitem extends Component {
                 }}/>
           : <div>
               <div
-                  style={{display: "inline-block"}}
+                  className="svg-container"
                   onClick={ () => this.props.updateItem({ completed: true }) }>
                 <Checkmark />
               </div>
               <div
-                  style={{display: "inline-block"}}
+                  className="svg-container"
                   onClick={ () => this.props.delete(this.props.data.id) }>
                 <Xmark />
               </div>
               <div
                   className="message text-box"
-                  onClick={ () => this.setState({ edit: true })}>
-                { this.props.data.item }
+                  onMouseOver={ () => this.setState({ edit: true })}>
+                { this.state.editedItem }
               </div>
             </div>
         }

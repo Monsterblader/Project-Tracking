@@ -13,7 +13,11 @@ input {
 }
 
 .page-container {
-  font-family: 'Titillium Web', cursive;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.svg-container {
+  display: inline-block;
 }
 
 .text-box {
