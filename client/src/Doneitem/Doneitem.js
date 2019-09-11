@@ -8,10 +8,7 @@ function Doneitem(props) {
     <div className="done-item">
       <div
           className="svg-container"
-          onClick={ () => {
-            console.log('clicked');
-            props.uncompleteItem();
-          } }>
+          onClick={ props.uncompleteItem }>
         <svg
             height="30.0"
             transform="scale(-1,1) translate(5,5)"

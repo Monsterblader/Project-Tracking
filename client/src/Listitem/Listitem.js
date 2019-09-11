@@ -6,11 +6,11 @@ import './Listitem.css';
 
 class Listitem extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       edit: false,
-      editedItem: props.data.item,
+      editedItem: this.props.data.item,
     };
   }
 
