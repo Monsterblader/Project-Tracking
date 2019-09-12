@@ -39,7 +39,7 @@ class Listitem extends Component {
               </div>
               <div
                   className="message text-box"
-                  onMouseOver={ () => this.setState({ edit: true })}>
+                  onClick={ () => this.setState({ edit: true })}>
                 { this.props.data.item }
               </div>
             </div>

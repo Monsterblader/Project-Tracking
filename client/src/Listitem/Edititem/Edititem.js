@@ -11,6 +11,7 @@ class Edititem extends Component {
 
   handleSubmit(e) {
     this.props.updateItem(this.input.current.value);
+    this.props.cancel();
     e.preventDefault();
   }
 
