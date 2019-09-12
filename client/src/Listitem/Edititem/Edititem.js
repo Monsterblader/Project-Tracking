@@ -1,29 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Plus from "../../assets/Plus.js";
 import './Edititem.css';
 
-function Edititem(props) {
-  return (
-    <div className="edit-item">
-      <div
-          className="svg-container"
-          onClick={ e => props.updateItem(e.currentTarget.nextSibling.value) }>
-        <Plus />
-      </div>
-      <input
-        className="text-box"
-        value={ props.itemState.editedItem }
-        onChange={ e => {
-          e.keyCode === 13
-            ? props.updateItem(e.target.value)
-            : props.changeItem(e.target.value) } }
-        onBlur={ e => {
-          e.target.value = props.itemState.editedItem;
-          props.cancel(); } }
-        autoFocus
-      />
-    </div>
-  );
+class Edititem extends Component {
+  constructor(props) {
+    super(props);
+    this.input = React.createRef();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    this.props.updateItem(this.input.current.value);
+    e.preventDefault();
+  }
+
+  render() {
+    return (
+      <form
+          className="edit-item"
+          onSubmit={ this.handleSubmit }>
+        <div
+            className="svg-container"
+            onClick={ this.handleSubmit }>
+          <Plus />
+        </div>
+        <input
+          className="text-box"
+          defaultValue={ this.props.item }
+          ref={ this.input }
+          onBlur={ e => {
+            e.target.value = this.props.item;
+            this.props.cancel(); } }
+          autoFocus
+        />
+      </form>
+    );
+  }
 }
 
 export default Edititem;

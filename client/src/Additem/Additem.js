@@ -29,7 +29,7 @@ class Additem extends Component {
           type="text"
           className="text-box"
           placeholder="Another day, another task"
-          ref={this.input}
+          ref={ this.input }
         />
       </form>
     );
