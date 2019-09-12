@@ -10,7 +10,6 @@ class Listitem extends Component {
 
     this.state = {
       edit: false,
-      editedItem: this.props.data.item,
     };
   }
 
@@ -21,9 +20,8 @@ class Listitem extends Component {
           key={ this.props.data.id }>
         { this.state.edit
           ? <Edititem
-                itemState={ this.state }
+                item={ this.props.data.item }
                 cancel={ () => this.setState({ edit: false }) }
-                changeItem={ newItem => this.setState({ editedItem: newItem }) }
                 updateItem={ newItem => {
                   this.setState({ edit: false });
                   this.props.updateItem({ item: newItem });
@@ -41,8 +39,8 @@ class Listitem extends Component {
               </div>
               <div
                   className="message text-box"
-                  onMouseOver={ () => this.setState({ edit: true })}>
-                { this.state.editedItem }
+                  onClick={ () => this.setState({ edit: true })}>
+                { this.props.data.item }
               </div>
             </div>
         }
