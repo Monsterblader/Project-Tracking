@@ -85,12 +85,10 @@ describe('Listitem', () => {
     });
   });
 
-
   it('renders <Edititem> when clicked', () => {
     render(<Listitem data={ data } />, container);
     const el = document.getElementsByClassName('message text-box')[0];
     el.click();
     expect(document.getElementById('mock-Edititem')).toBeTruthy();
   });
-
 });
