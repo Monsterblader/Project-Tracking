@@ -1,15 +1,30 @@
 // https://gist.github.com/wahengchang/108ca55981f6600c252ad0cb9d4c518f
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import Listitem from './Listitem.js';
 import Renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-dom/test-utils';
+import Listitem from './Listitem.js';
 
-jest.mock('./Edititem/Edititem.js', () => ()=> <div id="mockUserCom">mockUserCom</div>)
+jest.mock('./Edititem/Edititem.js',
+  () =>
+    () => <div id="mock-Edititem">Mock Edititem</div>
+)
+jest.mock('../assets/Checkmark.js',
+  () =>
+    () => <div id="mock-Checkmark">Checkmark</div>
+)
+jest.mock('../assets/Xmark.js',
+  () =>
+    () => <div id="mock-Xmark">Xmark</div>
+)
 
 describe('Listitem', () => {
   const data = {
+    id: 1234,
     item: "test value",
   };
+  const del = jest.fn();
+  const updateItem = jest.fn();
   let container = null;
 
   beforeEach(() => {
@@ -29,42 +44,53 @@ describe('Listitem', () => {
     const component = Renderer.create(
       <Listitem data={ data } />
     );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component.toJSON()).toMatchSnapshot();
   });
 
   it('renders without crashing', () => {
-    render(<Listitem data={ data }/>, container);
+    render(<Listitem data={ data } />, container);
   });
 
-  xit('creates an item with "test value"', () => {
-    expect(false).toBe(true);
+  it('creates an item with "test value"', () => {
+    render(<Listitem data={ data } />, container);
+    const el = container.getElementsByClassName('message text-box')[0];
+    expect(el.textContent).toEqual(data.item);
   });
 
-  xdescribe('the <Checkmark />', () => {
+  describe('the <Checkmark />', () => {
     it('renders <Checkmark />', () => {
-      expect(false).toBe(true);
+      render(<Listitem data={ data } />, container);
+      expect(document.getElementById('mock-Checkmark')).toBeTruthy();
     });
 
     it('calls updateItem on click', () => {
-      expect(false).toBe(true);
+      render(<Listitem data={ data } updateItem={ updateItem }/>, container);
+      const el = document.getElementById('mock-Checkmark');
+      el.parentNode.click();
+      expect(updateItem.mock.calls[0][0].completed).toBe(true);
     });
   });
 
-  xdescribe('the <Xmark />', () => {
+  describe('the <Xmark />', () => {
     it('renders <Xmark />', () => {
-      expect(false).toBe(true);
+      render(<Listitem data={ data } />, container);
+      expect(document.getElementById('mock-Xmark')).toBeTruthy();
     });
 
     it('calls delete on click', () => {
-      expect(false).toBe(true);
+      render(<Listitem data={ data } delete={ del }/>, container);
+      const el = document.getElementById('mock-Xmark');
+      el.parentNode.click();
+      expect(del.mock.calls[0][0]).toBe(1234);
     });
   });
 
 
   it('renders <Edititem> when clicked', () => {
-    const renderedInstance = Renderer.create(<Listitem data={ data } />).root;
-    expect(renderedInstance.findAllByProps({ children: data.item }).length).toBeGreaterThan(0);
+    render(<Listitem data={ data } />, container);
+    const el = document.getElementsByClassName('message text-box')[0];
+    el.click();
+    expect(document.getElementById('mock-Edititem')).toBeTruthy();
   });
 
 });

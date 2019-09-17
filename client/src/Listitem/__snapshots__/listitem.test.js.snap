@@ -9,51 +9,21 @@ exports[`Listitem it renders "Listitem" 1`] = `
       className="svg-container"
       onClick={[Function]}
     >
-      <svg
-        height="30.0000000"
-        transform="scale(0.75) translate(0,12.5)"
-        width="30.0000000"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        id="mock-Checkmark"
       >
-        <path
-          d="M 5.0,18.33 L 11.66,25.0 L 25.0,8.33"
-          style={
-            Object {
-              "fill": "none",
-              "stroke": "#008000",
-              "strokeDasharray": "none",
-              "strokeLinecap": "round",
-              "strokeLinejoin": "round",
-              "strokeWidth": 5,
-            }
-          }
-        />
-      </svg>
+        Checkmark
+      </div>
     </div>
     <div
       className="svg-container"
       onClick={[Function]}
     >
-      <svg
-        height="30.0000000"
-        transform="scale(0.75) translate(0,12.5)"
-        width="30.0000000"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        id="mock-Xmark"
       >
-        <path
-          d="M 5.0,5.0 L 25.0,25.0 M 25.0,5.0 L 5.0,25.0"
-          style={
-            Object {
-              "fill": "none",
-              "stroke": "#ff0000",
-              "strokeDasharray": "none",
-              "strokeLinecap": "round",
-              "strokeLinejoin": "round",
-              "strokeWidth": 5,
-            }
-          }
-        />
-      </svg>
+        Xmark
+      </div>
     </div>
     <div
       className="message text-box"
