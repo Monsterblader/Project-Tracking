@@ -1,4 +1,3 @@
-// https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274
 import React, { Component } from 'react';
 import axios from 'axios';
 import Additem from './Additem/Additem.js';
@@ -102,7 +101,7 @@ class App extends Component {
     return (
       <div className="page-container">
         <Additem
-            activateAdditem={ item => this.putDataToDb(item) } 
+            activateAdditem={ item => this.putDataToDb(item) }
             updateItem={ this.updateDb } />
         <div className="todo-list">
           {data.length <= 0

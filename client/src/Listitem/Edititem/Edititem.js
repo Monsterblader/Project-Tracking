@@ -10,9 +10,9 @@ class Edititem extends Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     this.props.updateItem(this.input.current.value);
     this.props.cancel();
-    e.preventDefault();
   }
 
   render() {
