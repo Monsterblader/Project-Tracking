@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### References
+
+// https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274
+// https://gist.github.com/wahengchang/108ca55981f6600c252ad0cb9d4c518f
+
+
 ## Available Scripts
 
 In the project directory, you can run:
