@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Additem it renders "Additem" 1`] = `
+<form
+  className="add-item"
+  onSubmit={[Function]}
+>
+  <div
+    className="svg-container"
+    onClick={[Function]}
+  >
+    <div
+      id="mock-Plus"
+    >
+      Plus
+    </div>
+  </div>
+  <input
+    className="text-box"
+    placeholder="Another day, another task"
+    type="text"
+  />
+</form>
+`;

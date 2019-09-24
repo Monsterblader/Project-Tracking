@@ -10,9 +10,9 @@ class Additem extends Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     this.props.activateAdditem(this.input.current.value);
     this.input.current.value = "";
-    e.preventDefault();
   }
 
   render() {
