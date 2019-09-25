@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Doneitem it renders "Doneitem" 1`] = `
+<div
+  className="done-item"
+>
+  <div
+    className="svg-container"
+  >
+    <svg
+      height="30.0"
+      transform="scale(-1,1) translate(5,5)"
+      width="30.0"
+    >
+      <div
+        id="mock-Checkmark"
+      >
+        Checkmark
+      </div>
+    </svg>
+  </div>
+  <div
+    className="svg-container"
+  >
+    <div
+      id="mock-Xmark"
+    >
+      Xmark
+    </div>
+  </div>
+  <div
+    className="message text-box"
+  >
+    test value
+  </div>
+</div>
+`;
