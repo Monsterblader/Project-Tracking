@@ -5,7 +5,7 @@ import Renderer from 'react-test-renderer';
 import ReactTestUtils from 'react-dom/test-utils';
 import Listitem from './Listitem.js';
 
-jest.mock('./Listitem.js',
+jest.mock('./Edititem/Edititem.js',
   () =>
     () => <div id="mock-Edititem">Mock Edititem</div>
 )
@@ -67,7 +67,7 @@ describe('Listitem', () => {
       render(<Listitem data={ data } updateItem={ updateItem }/>, container);
       const el = document.getElementById('mock-Checkmark');
       el.parentNode.click();
-      expect(updateItem).toHaveBeenCalledTimes(0);
+      expect(updateItem).toHaveBeenCalledTimes(1);
     });
   });
 
