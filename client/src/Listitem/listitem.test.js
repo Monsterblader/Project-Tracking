@@ -5,7 +5,7 @@ import Renderer from 'react-test-renderer';
 import ReactTestUtils from 'react-dom/test-utils';
 import Listitem from './Listitem.js';
 
-jest.mock('./Listitem.js',
+jest.mock('./Edititem/Edititem.js',
   () =>
     () => <div id="mock-Edititem">Mock Edititem</div>
 )
@@ -58,26 +58,26 @@ describe('Listitem', () => {
   });
 
   describe('the <Checkmark />', () => {
-    xit('renders <Checkmark />', () => {
+    it('renders <Checkmark />', () => {
       render(<Listitem data={ data } />, container);
       expect(document.getElementById('mock-Checkmark')).toBeTruthy();
     });
 
-    xit('calls updateItem on click', () => {
+    it('calls updateItem on click', () => {
       render(<Listitem data={ data } updateItem={ updateItem }/>, container);
       const el = document.getElementById('mock-Checkmark');
       el.parentNode.click();
-      expect(updateItem).toHaveBeenCalledTimes(0);
+      expect(updateItem).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('the <Xmark />', () => {
-    xit('renders <Xmark />', () => {
+    it('renders <Xmark />', () => {
       render(<Listitem data={ data } />, container);
       expect(document.getElementById('mock-Xmark')).toBeTruthy();
     });
 
-    xit('calls delete on click', () => {
+    it('calls delete on click', () => {
       render(<Listitem data={ data } delete={ del }/>, container);
       const el = document.getElementById('mock-Xmark');
       el.parentNode.click();
@@ -85,7 +85,7 @@ describe('Listitem', () => {
     });
   });
 
-  xit('renders <Listitem> when clicked', () => {
+  it('renders <Listitem> when clicked', () => {
     render(<Listitem data={ data } />, container);
     const el = document.getElementsByClassName('message text-box')[0];
     el.click();

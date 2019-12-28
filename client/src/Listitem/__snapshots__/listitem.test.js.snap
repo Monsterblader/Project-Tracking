@@ -2,8 +2,35 @@
 
 exports[`Listitem it renders "Listitem" 1`] = `
 <div
-  id="mock-Edititem"
+  className="list-item"
 >
-  Mock Edititem
+  <div>
+    <div
+      className="svg-container"
+      onClick={[Function]}
+    >
+      <div
+        id="mock-Checkmark"
+      >
+        Checkmark
+      </div>
+    </div>
+    <div
+      className="svg-container"
+      onClick={[Function]}
+    >
+      <div
+        id="mock-Xmark"
+      >
+        Xmark
+      </div>
+    </div>
+    <div
+      className="message text-box"
+      onClick={[Function]}
+    >
+      test value
+    </div>
+  </div>
 </div>
 `;
