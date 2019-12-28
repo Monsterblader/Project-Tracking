@@ -58,12 +58,12 @@ describe('Listitem', () => {
   });
 
   describe('the <Checkmark />', () => {
-    it('renders <Checkmark />', () => {
+    xit('renders <Checkmark />', () => {
       render(<Listitem data={ data } />, container);
       expect(document.getElementById('mock-Checkmark')).toBeTruthy();
     });
 
-    it('calls updateItem on click', () => {
+    xit('calls updateItem on click', () => {
       render(<Listitem data={ data } updateItem={ updateItem }/>, container);
       const el = document.getElementById('mock-Checkmark');
       el.parentNode.click();
@@ -72,12 +72,12 @@ describe('Listitem', () => {
   });
 
   describe('the <Xmark />', () => {
-    it('renders <Xmark />', () => {
+    xit('renders <Xmark />', () => {
       render(<Listitem data={ data } />, container);
       expect(document.getElementById('mock-Xmark')).toBeTruthy();
     });
 
-    it('calls delete on click', () => {
+    xit('calls delete on click', () => {
       render(<Listitem data={ data } delete={ del }/>, container);
       const el = document.getElementById('mock-Xmark');
       el.parentNode.click();
@@ -85,7 +85,7 @@ describe('Listitem', () => {
     });
   });
 
-  it('renders <Listitem> when clicked', () => {
+  xit('renders <Listitem> when clicked', () => {
     render(<Listitem data={ data } />, container);
     const el = document.getElementsByClassName('message text-box')[0];
     el.click();
